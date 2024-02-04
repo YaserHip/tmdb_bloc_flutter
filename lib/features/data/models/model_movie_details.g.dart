@@ -1,13 +1,14 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'movie_details.dart';
+part of 'model_movie_details.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MovieDetailsImpl _$$MovieDetailsImplFromJson(Map<String, dynamic> json) =>
-    _$MovieDetailsImpl(
+_$ModelMovieDetailsImpl _$$ModelMovieDetailsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ModelMovieDetailsImpl(
       adult: json['adult'] as bool?,
       backdropPath: json['backdrop_path'] as String?,
       homepage: json['homepage'] as String?,
@@ -26,7 +27,8 @@ _$MovieDetailsImpl _$$MovieDetailsImplFromJson(Map<String, dynamic> json) =>
       voteCount: json['vote_count'] as int?,
     );
 
-Map<String, dynamic> _$$MovieDetailsImplToJson(_$MovieDetailsImpl instance) =>
+Map<String, dynamic> _$$ModelMovieDetailsImplToJson(
+        _$ModelMovieDetailsImpl instance) =>
     <String, dynamic>{
       'adult': instance.adult,
       'backdrop_path': instance.backdropPath,

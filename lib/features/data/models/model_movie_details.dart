@@ -2,12 +2,12 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'movie_details.freezed.dart';
-part 'movie_details.g.dart';
+part 'model_movie_details.freezed.dart';
+part 'model_movie_details.g.dart';
 
 @freezed
-class MovieDetails with _$MovieDetails {
-  const factory MovieDetails(
+class ModelMovieDetails with _$ModelMovieDetails {
+  const factory ModelMovieDetails(
       {bool? adult,
       @JsonKey(name: 'backdrop_path') String? backdropPath,
       String? homepage,
@@ -23,8 +23,8 @@ class MovieDetails with _$MovieDetails {
       String? title,
       bool? video,
       @JsonKey(name: 'vote_average') double? voteAverage,
-      @JsonKey(name: 'vote_count') int? voteCount}) = _MovieDetails;
+      @JsonKey(name: 'vote_count') int? voteCount}) = _ModelMovieDetails;
 
-  factory MovieDetails.fromJson(Map<String, dynamic> json) =>
-      _$MovieDetailsFromJson(json);
+  factory ModelMovieDetails.fromJson(Map<String, dynamic> json) =>
+      _$ModelMovieDetailsFromJson(json);
 }
