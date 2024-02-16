@@ -5,7 +5,7 @@ import 'package:tmdb_bloc_flutter/features/presentation/bloc/upcoming/state_upco
 
 class BlocUpcomingMovies extends Bloc<Event, StateUpcomingMovies> {
   final UseCaseGetUpcomingMovies getUpcomingMovies;
-  BlocUpcomingMovies({required this.getUpcomingMovies})
+  BlocUpcomingMovies(this.getUpcomingMovies)
       : super(StateUpcomingMoviesInitial()) {
     on<FetchUpcomingMovies>(
       (event, emit) async {

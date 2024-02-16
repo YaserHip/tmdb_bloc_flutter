@@ -5,7 +5,7 @@ import 'package:tmdb_bloc_flutter/features/presentation/bloc/popular_movies/stat
 
 class BlocPopularMovies extends Bloc<Event, StatePopularMovies> {
   final UseCaseGetPopularMovies useCaseGetPopularMovies;
-  BlocPopularMovies({required this.useCaseGetPopularMovies})
+  BlocPopularMovies(this.useCaseGetPopularMovies)
       : super(StatePopularMoviesInitial()) {
     on<FetchPopularMovies>((event, emit) async {
       emit(StatePopularMoviesLoading());

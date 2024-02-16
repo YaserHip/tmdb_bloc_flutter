@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:tmdb_bloc_flutter/config/apikey.dart';
 import 'package:tmdb_bloc_flutter/features/data/models/model_movie_details.dart';
 import 'package:tmdb_bloc_flutter/features/data/models/model_movies_response.dart';
 
@@ -11,10 +12,10 @@ abstract mixin class ApiServiceSource {
 }
 
 class ApiService implements ApiServiceSource {
-  ApiService(this._dio, this.apiKey);
+  ApiService(this._dio);
 
   final Dio _dio;
-  final String apiKey;
+  final apiKey = APIKey.key;
 
   @override
   Future<ModelMovieDetails> getMovieDetails(int id) async {

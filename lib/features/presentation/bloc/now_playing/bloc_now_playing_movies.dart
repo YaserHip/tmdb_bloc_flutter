@@ -5,7 +5,7 @@ import 'package:tmdb_bloc_flutter/features/presentation/bloc/now_playing/state_n
 
 class BlocNowPlayingMovies extends Bloc<Event, StateNowPlayingMovies> {
   final UseCaseGetNowPlayingMovies useCaseGetNowPlayingMovies;
-  BlocNowPlayingMovies({required this.useCaseGetNowPlayingMovies})
+  BlocNowPlayingMovies(this.useCaseGetNowPlayingMovies)
       : super(StateNowPlayingMoviesInitial()) {
     on<FetchNowPlayingMovies>((event, emit) async {
       emit(StateNowPlayingMoviesLoading());
