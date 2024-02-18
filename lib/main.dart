@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb_bloc_flutter/config/dependency_injection.dart';
+import 'package:tmdb_bloc_flutter/config/routes.dart';
 import 'package:tmdb_bloc_flutter/features/presentation/bloc/events_movies.dart';
 import 'package:tmdb_bloc_flutter/features/presentation/bloc/movie_details/bloc_movie_details.dart';
 import 'package:tmdb_bloc_flutter/features/presentation/bloc/now_playing/bloc_now_playing_movies.dart';
@@ -45,6 +46,11 @@ class MyApp extends StatelessWidget {
           colorSchemeSeed: Colors.amber,
           useMaterial3: true,
           brightness: Brightness.light),
+      routeInformationProvider: goRouter.routeInformationProvider,
+      routeInformationParser: goRouter.routeInformationParser,
+      routerDelegate: goRouter.routerDelegate,
+      restorationScopeId: 'app',
+      onGenerateTitle: (context) => 'TMDB Bloc Flutter',
     );
   }
 }
