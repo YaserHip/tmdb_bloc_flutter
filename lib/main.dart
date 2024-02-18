@@ -3,9 +3,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tmdb_bloc_flutter/config/dependency_injection.dart';
 import 'package:tmdb_bloc_flutter/features/presentation/bloc/events_movies.dart';
 import 'package:tmdb_bloc_flutter/features/presentation/bloc/movie_details/bloc_movie_details.dart';
+import 'package:tmdb_bloc_flutter/features/presentation/bloc/now_playing/bloc_now_playing_movies.dart';
+import 'package:tmdb_bloc_flutter/features/presentation/bloc/popular_movies/bloc_popular_movies.dart';
+import 'package:tmdb_bloc_flutter/features/presentation/bloc/top_rated/bloc_top_rated_movies.dart';
+import 'package:tmdb_bloc_flutter/features/presentation/bloc/upcoming/bloc_upcoming_movies.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => getIt<BlocMovieDetails>()),
+      BlocProvider(
+          create: (context) =>
+              getIt<BlocPopularMovies>()..add(FetchPopularMovies())),
+      BlocProvider(
+          create: (context) =>
+              getIt<BlocNowPlayingMovies>()..add(FetchNowPlayingMovies())),
+      BlocProvider(
+          create: (context) =>
+              getIt<BlocTopRatedMovies>()..add(FetchTopRatedMovies())),
+      BlocProvider(
+          create: (context) =>
+              getIt<BlocUpcomingMovies>()..add(FetchUpcomingMovies())),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -13,23 +34,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        themeMode: ThemeMode.system,
-        darkTheme: ThemeData(
-            colorSchemeSeed: Colors.amber,
-            useMaterial3: true,
-            brightness: Brightness.dark),
-        theme: ThemeData(
-            colorSchemeSeed: Colors.amber,
-            useMaterial3: true,
-            brightness: Brightness.light),
-        home: MultiBlocProvider(
-          providers: [
-            BlocProvider(
-                create: (context) => getIt<BlocMovieDetails>().add(event))
-          ],
-          child: Container(),
-        ));
+    return MaterialApp.router(
+      title: 'Flutter Demo',
+      themeMode: ThemeMode.system,
+      darkTheme: ThemeData(
+          colorSchemeSeed: Colors.amber,
+          useMaterial3: true,
+          brightness: Brightness.dark),
+      theme: ThemeData(
+          colorSchemeSeed: Colors.amber,
+          useMaterial3: true,
+          brightness: Brightness.light),
+    );
   }
 }
