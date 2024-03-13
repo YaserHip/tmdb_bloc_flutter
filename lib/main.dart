@@ -36,14 +36,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
       themeMode: ThemeMode.system,
       darkTheme: ThemeData(
-          colorSchemeSeed: Colors.amber,
+          colorSchemeSeed: Colors.cyan,
           useMaterial3: true,
           brightness: Brightness.dark),
       theme: ThemeData(
-          colorSchemeSeed: Colors.amber,
+          colorSchemeSeed: Colors.cyan,
           useMaterial3: true,
           brightness: Brightness.light),
       routeInformationProvider: goRouter.routeInformationProvider,
